@@ -19,4 +19,8 @@ class SettingsController < ApplicationController
 
     redirect_to root_url, notice: "Your Quickbooks account has been successfully linked."
   end
+
+  def disconnect
+    redirect_to root_url, notice: "Disconnect Logic comming soon!"
+  end
 end

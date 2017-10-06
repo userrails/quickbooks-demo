@@ -26,17 +26,9 @@
 
     <script>
       intuit.ipp.anywhere.setup({
-        menuProxy: "<%= bluedot_setting_url %>",
-        grantUrl: "<%= authenticate_vendors_url %>"
+        menuProxy: "<%= bluedot_settings_url %>",
+        grantUrl: "<%= authenticate_settings_url %>"
       })
-
-      // <%# if signed_in? && session[:single_sign_on] == true %>
-      //   intuit.ipp.anywhere.directConnectToIntuit();
-      // <%# end %>
-
-      // <%# if signed_in? && current_company.access_token.present? && current_company.access_secret.present? && current_company.realm_id.present? %>
-      //   <ipp:blueDot></ipp:blueDot>
-      // <%# end
     </script>
   </body>
 </html>
