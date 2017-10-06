@@ -9,6 +9,34 @@
   </head>
 
   <body>
+    <% unless session[:token] %>
+      <ipp:connectToIntuit></ipp:connectToIntuit>
+    <% end %>
+
+    <% if notice %>
+      <div class="notice">
+        <%= notice %>
+      </div>
+    <% end %>
+
     <%= yield %>
+
+
+    <script type="text/javascript" src="https://appcenter.intuit.com/Content/IA/intuit.ipp.anywhere.js"></script>
+
+    <script>
+      intuit.ipp.anywhere.setup({
+        menuProxy: "<%= bluedot_setting_url %>",
+        grantUrl: "<%= authenticate_vendors_url %>"
+      })
+
+      // <%# if signed_in? && session[:single_sign_on] == true %>
+      //   intuit.ipp.anywhere.directConnectToIntuit();
+      // <%# end %>
+
+      // <%# if signed_in? && current_company.access_token.present? && current_company.access_secret.present? && current_company.realm_id.present? %>
+      //   <ipp:blueDot></ipp:blueDot>
+      // <%# end
+    </script>
   </body>
 </html>
