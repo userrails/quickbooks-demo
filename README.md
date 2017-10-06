@@ -1,24 +1,32 @@
-# README
+# Quickbooks Demo app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is for testing quickbooks api.
 
-Things you may want to cover:
+## Development setup
 
-* Ruby version
+Bundle gems up, migrate database, and run the server
 
-* System dependencies
+```shell
+bundle install
+rails db:migrate
+rails s
+```
 
-* Configuration
+If you are using my API keys for Quickbooks, you might need to setup following
+things in your /etc/hosts file
 
-* Database creation
+`sudo vim /etc/hosts`
 
-* Database initialization
+Add below entry to this file and save and exit
 
-* How to run the test suite
+```shell
+127.0.0.1 quickbooks-demo.dev
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+> NOTE: you can setup your app from [Intuit's Developer page](https://developer.intuit.com)
 
-* Deployment instructions
 
-* ...
+## Important note about Quickbooks.
+
+If we want appcenter to approve our app, we must use `Quickbooks`. other words
+like `quickbooks`, `Quickbook`, `quickbook`, could get rejected.
