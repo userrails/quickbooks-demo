@@ -1,0 +1,7 @@
+development:
+  OAUTH_CONSUMER_KEY: "Q0CXOKZOGGE1eShZp61Q8nSBFHcI3nvAB1XrHsbxPybDjkuR6o"
+  OAUTH_CONSUMER_SECRET: "hp1ZgVlgWC1SqRGz8ZPK05kbceRCjxMeV9iZleXt"
+production:
+  OAUTH_CONSUMER_KEY: "your oauth consumer key"
+  OAUTH_CONSUMER_SECRET: "your oauth consumer secret"
+
