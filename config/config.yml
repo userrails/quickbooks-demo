@@ -1,6 +1,6 @@
 OAuth2:
-  client_id: Q0CXOKZOGGE1eShZp61Q8nSBFHcI3nvAB1XrHsbxPybDjkuR6o
-  client_secret: hp1ZgVlgWC1SqRGz8ZPK05kbceRCjxMeV9iZleXt
+  client_id: <%= ENV['CLIENT_ID'] || 'Q0CXOKZOGGE1eShZp61Q8nSBFHcI3nvAB1XrHsbxPybDjkuR6o' %>
+  client_secret: <%= ENV['CLIENT_SECRET'] || 'hp1ZgVlgWC1SqRGz8ZPK05kbceRCjxMeV9iZleXt' %>
 Constant:
   baseURL: https://appcenter.intuit.com/connect/oauth2
   tokenURL: https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer
@@ -9,14 +9,6 @@ Constant:
   response_type: code
   grant_type: authorization_code
 Settings:
-  host_uri: http://quickbooks.dev:3000/
-  redirect_uri: http://quickbooks.dev:3000/token/new
+  host_uri: <%= ENV['HOST_URL'] || "http://quickbooks.dev:3000/" %>
+  redirect_uri: <%= ENV['REDIRECT_URL'] || 'http://quickbooks.dev:3000/token/new' %>
   state: randomState
-
-production:
-  OAuth2:
-    client_id: <%= ENV['CLIENT_ID'] %>
-    client_secret: <%= ENV['CLIENT_SECRET'] %>
-  Settings:
-    host_uri: <%= ENV['HOST_URL'] %>
-    host_uri: <%= ENV['REDIRECT_URL'] %>
