@@ -11,7 +11,7 @@ class InvoicesController < ApplicationController
     invoice = {
       "Line": [
         {
-          "Amount": 100.00,
+          "Amount": 10001.00,
           "DetailType": "SalesItemLineDetail",
           "SalesItemLineDetail": {
             "ItemRef": {
