@@ -89,7 +89,7 @@ class TokenController < ApplicationController
   end
 
   def load_config
-    config = YAML.load_file(Rails.root.join('config/config.yml'))
+    config = YAML.load_file(Rails.root.join('config/config.yml'))[Rails.env]
     @hostURL = config["Settings"]["host_uri"]
     @baseURL = config["Constant"]["baseURL"]
     @exchangeURL = config["Constant"]["tokenURL"]
