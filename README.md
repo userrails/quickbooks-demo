@@ -1,17 +1,37 @@
-# README
+# Quickbooks Demo app
 
-This app is mainly used to show logic how to implement OAuth 2 in Ruby on Rails.
+This app is for testing quickbooks api.
 
-* Ruby version:<br>
-The sample is tested on Ruby 2.4.2
+## Development setup
 
-* System dependencies:<br>
-The rails version is 5.1.4
+Bundle gems up, migrate database, and run the server
 
-* Configuration and run<br>
-1.Update your OAuth 2 configuration value at OAuth2_RubyOnRails/OAuth2/config/config.yml file.<br>
-2.Update your Redirect URIs in your app. <br>
-[![solarized dualmode](https://github.com/IntuitDeveloper/OAuth2_RubyOnRails/blob/master/OAuth2/public/app_redirect.png)](#features)
-2.Put the whole directory to your server, and run "rails server" <br>
-3.If you are using localhost, you can download ngrok at:https://ngrok.com/ and run "ngrok http 3000" (3000 is your port number)<br>
-4. open a browser and go to the rail server host.
+```shell
+bundle install
+rails db:migrate
+rails s
+```
+
+If you are using my API keys for Quickbooks, you might need to setup following
+things in your /etc/hosts file
+
+`sudo vim /etc/hosts`
+
+Add below entry to this file and save and exit
+
+```shell
+127.0.0.1 quickbooks-demo.dev
+```
+
+> NOTE: you can setup your app from [Intuit's Developer page](https://developer.intuit.com)
+
+
+## Important note about Quickbooks.
+
+To get approved in Quickbooks appcenter we must
+
+- use `QuickBooks` other words like `quickbooks`, `Quickbook`, `quickbook`, could get rejected.
+- user `oauth2` for authentication
+- Once users are connected using `Connect with QuickBooks` link they should be
+automatically authenticated. Meaning they should not be asked to login again.
+
