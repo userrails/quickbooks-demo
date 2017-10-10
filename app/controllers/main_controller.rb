@@ -2,7 +2,6 @@ require 'yaml'
 
 class MainController < ApplicationController
   def index
-    config = YAML.load_file(Rails.root.join('config/config.yml'))[Rails.env]
-    params[:url] = config["Settings"]["host_uri"] + "token/"
+    params[:url] = ENV["host_uri"] + "token/"
   end
 end

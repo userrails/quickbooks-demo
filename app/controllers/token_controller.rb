@@ -41,16 +41,19 @@ class TokenController < ApplicationController
   def refresh_token
     load_config
     url = URI(@exchangeURL)
+
     queryparams = {
       'grant_type' => @refresh_token_scope.to_s,
       'refresh_token' => params[:id].to_s
     }
     header_value = "Basic " + Base64.strict_encode64(@client_id.to_s + ":" + @client_secret.to_s)
+
     headers = {
       'Content-type' => "application/x-www-form-urlencoded",
       'Accept' => "application/json",
       'Authorization' => header_value
     }
+
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -70,12 +73,14 @@ class TokenController < ApplicationController
       'grant_type' => @grant_type.to_s,
       'redirect_uri' => @redirect_uri.to_s
     }
+
     header_value = "Basic " + Base64.strict_encode64(@client_id.to_s + ":" + @client_secret.to_s)
     headers = {
       'Content-type' => "application/x-www-form-urlencoded",
       'Accept' => "application/json",
       'Authorization' => header_value
     }
+
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -89,18 +94,17 @@ class TokenController < ApplicationController
   end
 
   def load_config
-    config = YAML.load_file(Rails.root.join('config/config.yml'))[Rails.env]
-    @hostURL = config["Settings"]["host_uri"]
-    @baseURL = config["Constant"]["baseURL"]
-    @exchangeURL = config["Constant"]["tokenURL"]
-    @client_id = config['OAuth2']['client_id']
-    @client_secret = config['OAuth2']['client_secret']
-    @scope = config["Constant"]["scope"]
-    @refresh_token_scope = config["Constant"]["resfresh_grant_type"]
-    @redirect_uri = config["Settings"]["redirect_uri"]
-    @state = config["Settings"]["state"]
-    @response_type = config["Constant"]["response_type"]
-    @grant_type = config['Constant']['grant_type']
+    @hostURL = ENV["host_uri"]
+    @baseURL = ENV["baseURL"]
+    @exchangeURL = ENV["tokenURL"]
+    @client_id = ENV['client_id']
+    @client_secret = ENV['client_secret']
+    @scope = ENV["scope"]
+    @refresh_token_scope = ENV["resfresh_grant_type"]
+    @redirect_uri = ENV["redirect_uri"]
+    @state = ENV["state"]
+    @response_type = ENV["response_type"]
+    @grant_type = ENV['grant_type']
   end
 
   def construct_baseUrl
