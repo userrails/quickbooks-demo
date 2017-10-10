@@ -25,3 +25,4 @@ production:
   Settings:
     host_uri: https://quickbooks-app.herokuapp.com/
     redirect_uri: https://quickbooks-app.herokuapp.com/token/new
+    state: 3d25ffb0ac157b6cd5a332b75509031393dc20ee989cdd01b1004
