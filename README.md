@@ -30,6 +30,7 @@ Add below entry to this file and save and exit
 
 To get approved in Quickbooks appcenter we must
 
+- Write script to refresh expired token every night, or whenever it feels good
 - use `QuickBooks` other words like `quickbooks`, `Quickbook`, `quickbook`, could get rejected.
 - user `oauth2` for authentication
 - Once users are connected using `Connect with QuickBooks` link they should be
