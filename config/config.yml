@@ -23,5 +23,5 @@ production:
     client_id: L0B8HD2sQLw3aGOXSZPvzsQo6IcCN1ly7k9T5876DtgUrvKKCh
     client_secret: J4eVglaofXRaa5lEZFpufXyrSNv5nJtMzyIitPLz
   Settings:
-    host_uri: https://quickbooks-app.herokuapp.com
+    host_uri: https://quickbooks-app.herokuapp.com/
     redirect_uri: https://quickbooks-app.herokuapp.com/token/new
