@@ -20,8 +20,8 @@ development:
 production:
   <<: *defaults
   OAuth2:
-    client_id: <%= ENV['CLIENT_ID'] %>
-    client_secret: <%= ENV['CLIENT_SECRET'] %>
+    client_id: L0B8HD2sQLw3aGOXSZPvzsQo6IcCN1ly7k9T5876DtgUrvKKCh
+    client_secret: J4eVglaofXRaa5lEZFpufXyrSNv5nJtMzyIitPLz
   Settings:
-    host_uri: <%= ENV['HOST_URL'] %>
-    redirect_uri: <%= ENV['REDIRECT_URL'] %>
+    host_uri: https://quickbooks-app.herokuapp.com
+    redirect_uri: https://quickbooks-app.herokuapp.com/token/new
