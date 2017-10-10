@@ -28,7 +28,6 @@ class InvoicesController < ApplicationController
 
     res = qbo_api.create(:invoice, payload: invoice)
     Bill.create(billid: res['Id']) unless res['Id'].blank?
-
     redirect_to invoices_path, notice: 'Invoice created successfully!'
   end
 

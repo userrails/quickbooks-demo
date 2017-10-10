@@ -9,13 +9,15 @@
     </td>
   </tr>
   <tr>
+    <th>Id</th>
     <th>Bill Number</th>
     <th>Action</th>
   </tr>
   <% @invoices.each do |invoice| %>
     <tr>
       <td><%= invoice.id %></td>
-      <td><%= link_to "Show", invoice_path(invoice) %></td>
+      <td><%= invoice.billid %></td>
+      <td><%= link_to "Show", invoice_path(invoice.billid) %></td>
     </tr>
   <% end %>
 </table>
