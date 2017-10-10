@@ -1,6 +1,10 @@
 class InvoicesController < ApplicationController
   def index
-    @invoices = qbo_api.get(:invoice)
+    @invoices = Bill.all
+  end
+
+  def show
+    @invoice = qbo_api.get(:invoice, params[:id])
   end
 
   def create
@@ -22,9 +26,10 @@ class InvoicesController < ApplicationController
       }
     }
 
-    qbo_api.create(:invoice, payload: invoice)
+    res = qbo_api.create(:invoice, payload: invoice)
+    Bill.create(billid: res['Id']) unless res['Id'].blank?
 
-    redirect_to invoices_path
+    redirect_to invoices_path, notice: 'Invoice created successfully!'
   end
 
   private

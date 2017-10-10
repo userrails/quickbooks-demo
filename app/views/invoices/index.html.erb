@@ -1,0 +1,21 @@
+<h1>Bills</h1>
+
+<table class="table table-striped">
+  <tr>
+    <td colspan="2">
+      <%= form_for :invoice, url: { action: 'create' } do |f| %>
+        <%= f.submit "Create Invoice", class: 'btn btn-success' %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <th>Bill Number</th>
+    <th>Action</th>
+  </tr>
+  <% @invoices.each do |invoice| %>
+    <tr>
+      <td><%= invoice.id %></td>
+      <td><%= link_to "Show", invoice_path(invoice) %></td>
+    </tr>
+  <% end %>
+</table>
