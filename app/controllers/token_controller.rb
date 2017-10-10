@@ -24,6 +24,15 @@ class TokenController < ApplicationController
       params[:x_refresh_token_expires_in] = result["x_refresh_token_expires_in"]
       params[:access_token] = result["access_token"]
       params[:host_uri] = @hostURL.to_s
+      session[:realmId] = @realmID
+
+      token = Token.find_or_initialize_by(realm_id: params[:realmId])
+      token.access_token = result['access_token']
+      token.realm_id = params[:realmId]
+      token.refresh_token = result['refresh_token']
+      token.expires_in = result["expires_in"]
+      token.x_refresh_token_expires_in = result["x_refresh_token_expires_in"]
+      token.save
     else
       render html: '<div>Your State is not matched, consider it hacked.<div>'.html_safe
     end
@@ -31,6 +40,15 @@ class TokenController < ApplicationController
 
   def edit
     result = refresh_token
+
+    token = Token.find_by_realm_id(session[:realmID]) || Token.first
+    token.update(
+      refresh_token: result["refresh_token"],
+      expires_in: result["expires_in"],
+      x_refresh_token_expires_in: result["x_refresh_token_expires_in"],
+      access_token: result["access_token"]
+    )
+
     params[:updated_refresh_token] = result["refresh_token"]
     params[:updated_expires_in] = result["expires_in"]
     params[:updated_x_refresh_token_expires_in] = result["x_refresh_token_expires_in"]
@@ -93,6 +111,12 @@ class TokenController < ApplicationController
     return hash_response
   end
 
+
+  private
+
+  def set_tokens_into_session(result)
+  end
+
   def load_config
     @hostURL = ENV["host_uri"]
     @baseURL = ENV["baseURL"]
@@ -123,5 +147,4 @@ class TokenController < ApplicationController
     end
     return uri
   end
-
 end

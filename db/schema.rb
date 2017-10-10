@@ -10,6 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171010070608) do
+
+  create_table "tokens", force: :cascade do |t|
+    t.text "access_token"
+    t.text "realm_id"
+    t.text "refresh_token"
+    t.datetime "expires_in"
+    t.datetime "x_refresh_token_expires_in"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
