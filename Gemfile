@@ -20,6 +20,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 ## Quickbooks helpers
 gem 'figaro'
 gem 'qbo_api'
+gem 'database_cleaner' # clear production database, if permission error occurred
 
 group :development, :test do
   gem 'sqlite3'

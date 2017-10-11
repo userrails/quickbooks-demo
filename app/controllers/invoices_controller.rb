@@ -30,13 +30,4 @@ class InvoicesController < ApplicationController
     Bill.create(billid: res['Id']) unless res['Id'].blank?
     redirect_to invoices_path, notice: 'Invoice created successfully!'
   end
-
-  private
-
-  def qbo_api
-    QboApi.new(
-      access_token: token.access_token,
-      realm_id: token.realm_id
-    )
-  end
 end

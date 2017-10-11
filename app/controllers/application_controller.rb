@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :token
+
+  helper_method :token, :qbo_api
 
   rescue_from QboApi::BadRequest, with: :qbo_bad_request
   rescue_from QboApi::NotImplementedError, with: :qbo_not_implemented_error
@@ -13,6 +14,13 @@ class ApplicationController < ActionController::Base
 
   def token
     Token.find_by(realm_id: session[:realmID]) || Token.first
+  end
+
+  def qbo_api
+    QboApi.new(
+      access_token: token.access_token,
+      realm_id: token.realm_id
+    )
   end
 
   def qbo_bad_request(error)

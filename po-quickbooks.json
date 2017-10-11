@@ -1,0 +1,99 @@
+{
+    "APAccountRef": {
+        "name": "Accounts Payable (A/P)",
+        "value": "33"
+    },
+    "CurrencyRef": {
+        "name": "United States Dollar",
+        "value": "USD"
+    },
+    "CustomField": [
+        {
+            "DefinitionId": "1",
+            "Name": "Crew #",
+            "Type": "StringType"
+        },
+        {
+            "DefinitionId": "2",
+            "Name": "Sales Rep",
+            "Type": "StringType"
+        }
+    ],
+    "DocNumber": "1004",
+    "Id": "125",
+    "Line": [
+        {
+            "Amount": 80.0,
+            "Description": "Fountain Pump",
+            "DetailType": "ItemBasedExpenseLineDetail",
+            "Id": "1",
+            "ItemBasedExpenseLineDetail": {
+                "BillableStatus": "NotBillable",
+                "ItemRef": {
+                    "name": "Pump",
+                    "value": "11"
+                },
+                "Qty": 8,
+                "TaxCodeRef": {
+                    "value": "NON"
+                },
+                "UnitPrice": 10
+            }
+        },
+        {
+            "Amount": 125.0,
+            "Description": "Rock Fountain",
+            "DetailType": "ItemBasedExpenseLineDetail",
+            "Id": "2",
+            "ItemBasedExpenseLineDetail": {
+                "BillableStatus": "NotBillable",
+                "ItemRef": {
+                    "name": "Rock Fountain",
+                    "value": "5"
+                },
+                "Qty": 1,
+                "TaxCodeRef": {
+                    "value": "NON"
+                },
+                "UnitPrice": 125
+            }
+        }
+    ],
+    "LinkedTxn": [
+        {
+            "TxnId": "126",
+            "TxnType": "Bill"
+        }
+    ],
+    "MetaData": {
+        "CreateTime": "2017-08-30T13:10:14-07:00",
+        "LastUpdatedTime": "2017-08-30T13:10:36-07:00"
+    },
+    "POStatus": "Closed",
+    "ShipAddr": {
+        "Id": "93",
+        "Lat": "INVALID",
+        "Line1": "Craig's Design and Landscaping Services",
+        "Line2": "123 Sierra Way",
+        "Line3": "San Pablo, CA 87999",
+        "Long": "INVALID"
+    },
+    "SyncToken": "1",
+    "TotalAmt": 205.0,
+    "TxnDate": "2017-08-30",
+    "VendorAddr": {
+        "Id": "92",
+        "Lat": "37.4530553",
+        "Line1": "Julie Norton",
+        "Line2": "Norton Lumber and Building Materials",
+        "Line3": "4528 Country Road",
+        "Line4": "Middlefield, CA 94303",
+        "Long": "-122.1178261"
+    },
+    "VendorRef": {
+        "name": "Norton Lumber and Building Materials",
+        "value": "46"
+    },
+    "domain": "QBO",
+    "sparse": false
+}
